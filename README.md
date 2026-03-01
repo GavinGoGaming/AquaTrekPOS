@@ -1,36 +1,11 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AquaTrek POS
 
-## Getting Started
+AquaTrek POS is a replacement for the Virtual Enterprise POS system used at trade shows and selling events. It uses OCR to scan the Network Bank debit cards, extracts the account number, and adds sales to a google sheet.
 
-First, run the development server:
+You will ***still*** need a person or two actually charging these sales.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Using this isn't plug and play - some assembly is very much required.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Make a google cloud project, enable the google sheets API, make a service user with the permission "Editor", and then go to the keys of it and add a JSON key. Download this, put it into the "backend" folder, and name it "json-key.json". Then, deploy your service. I reccomend Fly.io, you can `fly deploy` as a config is already located.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+You'll need to do some code editing to get the frontend working as well. Find all references to the aquatrek backend .fly.dev link and replace them with your own. Once done, you can deploy this root folder on Vercel for a good free option, or github pages via actions if you can get that working.
