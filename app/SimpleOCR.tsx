@@ -120,6 +120,15 @@ export default function AccountNumberOcr({ cart, setMode }: { cart: Product[], s
                             alert('An error occurred during checkout. Please try again.');
                         });
                 }} className={((accountNumber == null) || scanning) ? 'disabled' : ''}> <i className="fas fa-shopping-cart"></i> Purchase</button>
+
+                <div style={{ width: '280px', height: '1px', margin: '15px 0', background: '#ffffff20' }}></div>
+                <div className="example-ocr">
+                    <img src="/example.png" alt="Example" />
+                    <div className="right">
+                        <h3>Tips for Scanning</h3>
+                        <p>Make sure to get an up close picture with crisp text. Use 0.9x- zoom if your phone supports it.</p>
+                    </div>
+                </div>
             </>)}
 
             <div className="cart" style={{ textAlign: 'center' }}>
