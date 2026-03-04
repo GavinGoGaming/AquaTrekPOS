@@ -84,8 +84,8 @@ app.use(express.json());
 const upload = multer({ storage: multer.memoryStorage() });
 
 async function extract(buffer) {
-    const { data: { text } } = await Tesseract.recognize(buffer, 'eng'); // change to 'chi_sim' if Chinese
-    const line = text.split('\n').find(l => l.includes('mber')); // find the line with "Account"
+    const { data: { text } } = await Tesseract.recognize(buffer, 'eng');
+    const line = text.split('\n').find(l => l.includes('umber')); // find the line with "Number"
     if (!line) return '';
     const digits = line.split('').filter(c => '0123456789'.includes(c)).join('');
     return digits;
